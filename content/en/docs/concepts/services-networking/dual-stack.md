@@ -80,10 +80,28 @@ Make sure that nodes allow IPv6 forwarding, if not, run `sudo sysctl -w net.ipv6
 
 #### Create a dual-stack cluster
 
-You must pass your `podCidr` and `serviceCidr` value to `kubeadm init`, like so:
+A simple command with `podCidr` and `serviceCidr` flags to create a dual-stack cluster via `kubeadm init`, it like below:
 
-```
+```shell
 kubeadm init --feature-gates IPv6DualStack=true --pod-network-cidr=172.30.0.0/16,fefe:ffff:0::/48 --service-cidr=172.31.0.0/16,fefe:ffff:1::/108
+```
+
+To make things more clear, here is an example config `kubeadm-config.yml` for the dual-stack control-plane node.
+
+```yaml
+apiVersion: kubeadm.k8s.io/v1beta2
+kind: ClusterConfiguration
+featureGates:
+  IPv6DualStack: true
+networking:
+      podSubnet: 172.30.0.0/16,fefe:ffff:0::/48
+      serviceSubnet: 172.31.0.0/16,fefe:ffff:1::/108
+``
+
+Run kubeadm to initiate the dual-stack control-plane node.
+
+```shell
+kubeadm init --config=kubeadm-config.yml
 ```
 
 Currently, `kube-controller-manager` flags `--node-cidr-mask-size-ipv4|--node-cidr-mask-size-ipv6` are setting with the default value. See [enable IPv4/IPv6 dual stack](/docs/concepts/services-networking/dual-stack#enable-ipv4ipv6-dual-stack).

@@ -76,7 +76,9 @@ Install kubeadm following the steps from the [Installing Kubeadm](/docs/setup/pr
 
 Make sure that nodes allow IPv6 forwarding, if not, run `sudo sysctl -w net.ipv6.conf.all.forwarding=1` on every node in the cluster.
 
-* Notice that `kubeadm upgrade` will change IPv6DualStack to true by default if feature gate is not set in old cluster. However, cluster-cidr and service-cidr modification are not supported.
+{{< note >}}
+`kubeadm upgrade` will change `IPv6DualStack` to true by default if feature gate is not set in old cluster. However, cluster-cidr and service-cidr modification are not supported.
+{{< /note >}}
 
 #### Create a dual-stack cluster
 

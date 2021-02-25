@@ -116,7 +116,7 @@ Before joining a node, make sure that the node has IPv6 routable network interfa
 
 #### Create a single-stack cluster
 
-As IPv6DualStack feature gate is beta and default to true after 1.21, dual stack will be enabled by default without `--feature-gates` flag.
+In 1.21 the `IPv6DualStack` feature is Beta and the feature gate is defaulted to `true`. To disable the feature you must configure the feature gate to `false`. Note that once the feature is GA, the feature gate will be removed.
 
 ```
 kubeadm init --feature-gates IPv6DualStack=false

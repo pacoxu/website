@@ -114,7 +114,6 @@ There is a limitation here, `--apiserver-advertise-address` flag doesn't support
 
 Before joining a node, make sure that the node has IPv6 routable network interface and allows IPv6 forwarding.
 
-
 #### Create a single-stack cluster
 
 As IPv6DualStack feature gate is beta and default to true after 1.21, dual stack will be enabled by default without `--feature-gates` flag.

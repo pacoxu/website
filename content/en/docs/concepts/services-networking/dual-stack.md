@@ -94,8 +94,8 @@ kind: ClusterConfiguration
 featureGates:
   IPv6DualStack: true
 networking:
-      podSubnet: 172.30.0.0/16,fefe:ffff:0::/48
-      serviceSubnet: 172.31.0.0/16,fefe:ffff:1::/108
+  podSubnet: 172.30.0.0/16,fefe:ffff:0::/48
+  serviceSubnet: 172.31.0.0/16,fefe:ffff:1::/108
 ``
 
 Run kubeadm to initiate the dual-stack control-plane node.

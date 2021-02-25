@@ -74,7 +74,7 @@ An example of an IPv6 CIDR: `fdXY:IJKL:MNOP:15::/64` (this shows the format but 
 
 Install kubeadm following the steps from the [Installing Kubeadm](/docs/setup/production-environment/tools/kubeadm/install-kubeadm/) documentation.
 
-Make sure that nodes allow ipv6 forwarding, if not, run `sudo sysctl -w net.ipv6.conf.all.forwarding=1` on every node in the cluster.
+Make sure that nodes allow IPv6 forwarding, if not, run `sudo sysctl -w net.ipv6.conf.all.forwarding=1` on every node in the cluster.
 
 * Notice that `kubeadm upgrade` will change IPv6DualStack to true by default if feature gate is not set in old cluster. However, cluster-cidr and service-cidr modification are not supported.
 
@@ -92,12 +92,12 @@ There is a limitation here, `--apiserver-advertise-address` flag doesn't support
 
 #### Join a node to dual-stack cluster
 
-Before joining a node, make sure that the node has ipv6 routable network interface and allows ipv6 forwarding.
+Before joining a node, make sure that the node has IPv6 routable network interface and allows IPv6 forwarding.
 
 
 #### Create a single-stack cluster
 
-As IPv6DualStack feature gate is beta and default to true after 1.21, you can run the command without `--feature-gates` flag.
+As IPv6DualStack feature gate is beta and default to true after 1.21, dual stack will be enabled by default without `--feature-gates` flag.
 
 ```
 kubeadm init --feature-gates IPv6DualStack=false

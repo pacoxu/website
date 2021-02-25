@@ -86,7 +86,7 @@ A simple command with `podCidr` and `serviceCidr` flags to create a dual-stack c
 kubeadm init --feature-gates IPv6DualStack=true --pod-network-cidr=172.30.0.0/16,fefe:ffff:0::/48 --service-cidr=172.31.0.0/16,fefe:ffff:1::/108
 ```
 
-To make things more clear, here is an example config `kubeadm-config.yml` for the dual-stack control-plane node.
+To make things more clear, here is an example kubeadm [configuration file](https://pkg.go.dev/k8s.io/kubernetes/cmd/kubeadm/app/apis/kubeadm/v1beta2) `kubeadm-config.yml` for the dual-stack control plane node.
 
 ```yaml
 apiVersion: kubeadm.k8s.io/v1beta2
